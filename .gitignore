@@ -1,3 +1,5 @@
 
 MatrizdeConhecimentos/src/main/java/com/MatrizDeConhecimento/ApiService/DadosColaboradorService.java
 *.java
+MatrizdeConhecimentos/Api/
+MatrizdeConhecimentos/backup-apiMonica/
