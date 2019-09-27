@@ -35,6 +35,7 @@ public class ApiService {
 		if(conhecimentosRepository.existsById(cpf)) {
 			throw new InvalidCpfException("Cpf já cadastrado para um colaborador!");
 		}
+		
 		MatrizDeConhecimentoColaborador colaboradorCompleto = new MatrizDeConhecimentoColaborador();
 		colaboradorCompleto.setCpf(colaborador.getCpf());
 		colaboradorCompleto.setNome(colaborador.getNome());
