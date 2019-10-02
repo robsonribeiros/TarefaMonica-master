@@ -12,10 +12,15 @@ import org.springframework.stereotype.Service;
 import br.com.compasso.matrizdeconhecimento.exceptions.ColaboradorInexistenteException;
 import br.com.compasso.matrizdeconhecimento.exceptions.InvalidCpfException;
 import br.com.compasso.matrizdeconhecimento.feing.APIdeColaboradores;
+import br.com.compasso.matrizdeconhecimento.feing.ApiContato;
+import br.com.compasso.matrizdeconhecimento.feing.ApiEndereco;
 import br.com.compasso.matrizdeconhecimento.models.Colaborador;
 import br.com.compasso.matrizdeconhecimento.models.MatrizDeConhecimento;
 import br.com.compasso.matrizdeconhecimento.models.MatrizDeConhecimentoColaborador;
+import br.com.compasso.matrizdeconhecimento.models.DTO.Email;
+import br.com.compasso.matrizdeconhecimento.models.DTO.Endereco;
 import br.com.compasso.matrizdeconhecimento.models.DTO.MatrizDeConhecimentoColaboradorDTO;
+import br.com.compasso.matrizdeconhecimento.models.DTO.Telefone;
 import br.com.compasso.matrizdeconhecimento.repository.ConhecimentosRepository;
 
 @Service
@@ -23,6 +28,11 @@ public class ApiService {
 
 	@Autowired 
 	private APIdeColaboradores apiDeColaboradores;
+	@Autowired
+	private ApiContato apicontato;
+	@Autowired
+	private ApiEndereco apiendereco;
+	
 	@Autowired
 	private ConhecimentosRepository conhecimentosRepository;
 
@@ -176,6 +186,16 @@ public class ApiService {
 		
 		return apiDeColaboradores.GetColaboradores();
 	}
+	
+	public List<Telefone> BuscaTelefones(){
+		return apicontato.geTelefones();
+	}
 
+	public List<Email> BuscaEmail(){
+		return apicontato.getEmails();
+	}
 
+	public List<Endereco> BuscaEndereco(){
+		return apiendereco.GetEndereco();
+	}
 }
